@@ -7,16 +7,16 @@ import {NavigationContainer} from '@react-navigation/native';
 
 const Tab = createBottomTabNavigator();
 const HomeStack = createStackNavigator();
-const MapStack = createStackNavigator();
+// const MapStack = createStackNavigator();
 
-const HomeStackScreen = () => {
-  return (
-    <HomeStack.Navigator>
-      <HomeStack.Screen name="Home" component={Home} />
-      <HomeStack.Screen name="Map" component={Map} />
-    </HomeStack.Navigator>
-  );
-};
+// const HomeStackScreen = () => {
+//   return (
+//     <HomeStack.Navigator>
+//       <HomeStack.Screen name="Home" component={Home} />
+//       <HomeStack.Screen name="Map" component={Map} />
+//     </HomeStack.Navigator>
+//   );
+// };
 
 // const MapStackScreen = () => {
 //   return (
@@ -27,13 +27,20 @@ const HomeStackScreen = () => {
 //   );
 // };
 
+// {
+//   <Tab.Navigator>
+//         <Tab.Screen name="Home" component={HomeStackScreen} />
+//         <Tab.Screen name="Map" component={Map} />
+//       </Tab.Navigator> 
+// }
+
 export default function App() {
   return (
     <NavigationContainer>
-      <Tab.Navigator>
-        <Tab.Screen name="Home" component={HomeStackScreen} />
-        <Tab.Screen name="Map" component={Map} />
-      </Tab.Navigator>
+      <HomeStack.Navigator>
+        <HomeStack.Screen name="Home" component={Home} />
+        <HomeStack.Screen name="Map" component={Map} />
+      </HomeStack.Navigator>
     </NavigationContainer>
   );
 }

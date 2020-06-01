@@ -84,7 +84,7 @@ class Home extends Component {
         });
       }
 
-      for (let i = 0; i < 5; i++) {
+      for (let i = 0; i < tmp; i++) {
         this.state.dict1.push({
           id: i,
           name: this.state.cases[i].description.country,
@@ -136,13 +136,12 @@ class Home extends Component {
         <SafeAreaView>
           <View style={styles.Searchbarview}>
             <Search
-              fromDict={this.state.dict}
-              // fromDict1={this.state.dict1}
+              aboutCountry={this.state.dict}
               onClickSelectCountry={this.onClickSelectCountry}
             />
           </View>
           <View style={styles.Flatlistview}>
-            <List fromDict1={this.state.dict1}  navigation={this.props.navigation}  />
+            <List aboutCases={this.state.dict1} aboutCountry={this.state.countries}  navigation={this.props.navigation}  />
           </View>
         </SafeAreaView>
       </View>

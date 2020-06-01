@@ -5,18 +5,31 @@ import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps'; // remove PR
 const W = Dimensions.get('window').width;
 const H = Dimensions.get('window').height;
 
-const Map = () => {
+const Map = ({route}) => {
+  var {lat} = route.params;
+  var {lon} = route.params;
+
+ 
+
+  const latit = parseFloat(JSON.stringify(lat[0]));
+  const longi = parseFloat(JSON.stringify(lon[0]));
+  console.log(latit);
+  console.log(longi);
+
   return (
     <View style={styles.container}>
       <MapView
         provider={PROVIDER_GOOGLE} // remove if not using Google Maps
         style={styles.map}
         coordinate={{
-          latitude: props.lat,
-          longitude: props.lon,
+          latitude: latit,
+          longitude: longi,
         }}>
         <Marker
-          coordinate={{latitude: props.lat, longitude:props.lon}}
+          coordinate={{
+            latitude: latit,
+            longitude: longi,
+          }}
           pinColor={'red'}
         />
       </MapView>

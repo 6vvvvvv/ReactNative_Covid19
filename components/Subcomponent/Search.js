@@ -11,10 +11,10 @@ class Search extends Component {
     this.state = {
       selectedItems: [],
       //items should be a list
-      items: this.props.fromDict,
-      // tofather: this.props.fromDict1,
+      items: this.props.aboutCountry,
+      // tofather: this.props.aboutCases,
     };
-    console.log('fromDICT', this.state.items);
+    console.log('aboutCountry', this.state.items);
     // console.log('this.state.tofather', this.state.tofather);
   }
 
