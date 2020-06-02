@@ -12,14 +12,12 @@ class Search extends Component {
       selectedItems: [],
       //items should be a list
       items: this.props.aboutCountry,
-      // tofather: this.props.aboutCases,
     };
     console.log('aboutCountry', this.state.items);
-    // console.log('this.state.tofather', this.state.tofather);
   }
 
   // pass data to parent to change country view
-  onClickTargetCountry = item => {
+  onClickTargetCountry = (item) => {
     this.props.onClickSelectCountry(item);
   };
 
@@ -29,24 +27,11 @@ class Search extends Component {
         <SearchableDropdown
           // multi={true}
           selectedItems={this.state.selectedItems}
-          onItemSelect={item => {
+          onItemSelect={(item) => {
             console.log('youhave click', item);
             this.onClickTargetCountry(item.id);
-            // console.log('return',this.state.tofather[item.id]);
-
-
-            // if (item.name === this.state.tofather[item.id].name) {
-            //   console.log("**************",this.state.tofather[item.id])
-            //   this.onClickTargetCountry(this.state.tofather[item.id]);
-            // }
           }}
           containerStyle={{padding: 25}}
-          // onRemoveItem={(item, index) => {
-          //   const items = this.state.selectedItems.filter(
-          //     sitem => sitem.id !== item.id,
-          //   );
-          //   this.setState({selectedItems: items});
-          // }}
           itemStyle={{
             padding: 10,
             marginTop: 2,
@@ -59,9 +44,6 @@ class Search extends Component {
           itemsContainerStyle={{maxHeight: 250}}
           //items should be a list
           items={this.state.items}
-          // defaultIndex={2}
-          // chip={true}
-          // resetValue={false}
           textInputProps={{
             placeholder: 'Select a Country',
             underlineColorAndroid: 'transparent',

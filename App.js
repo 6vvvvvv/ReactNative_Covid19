@@ -1,6 +1,7 @@
 import React from 'react';
 import {Home} from './components/Home';
 import {Map} from './components/Map';
+// import {Global} from './components/Global';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
@@ -27,12 +28,10 @@ const HomeStack = createStackNavigator();
 //   );
 // };
 
-// {
-//   <Tab.Navigator>
-//         <Tab.Screen name="Home" component={HomeStackScreen} />
-//         <Tab.Screen name="Map" component={Map} />
-//       </Tab.Navigator> 
-// }
+// <Tab.Navigator>
+// <Tab.Screen name="Home" component={HomeStackScreen} />
+// <Tab.Screen name="Map" component={Global} />
+// </Tab.Navigator>
 
 export default function App() {
   return (
