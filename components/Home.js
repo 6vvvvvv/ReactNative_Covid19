@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
-import {SafeAreaView, StyleSheet, View} from 'react-native';
+import {SafeAreaView, StyleSheet, View, Dimensions, Image} from 'react-native';
 import {Search} from './Subcomponent/Search';
-import {Dimensions} from 'react-native';
 import {List} from './Subcomponent/List';
 
 const W = Dimensions.get('window').width;
@@ -12,7 +11,7 @@ class Home extends Component {
     super(props);
 
     this.state = {
-      countries:[],
+      countries: [],
       cases: [],
       dict: [],
       dict1: [],
@@ -44,8 +43,6 @@ class Home extends Component {
       }
 
       console.log('countries async', this.state.countries);
-
-    
     };
     // case detail
     const fetchcovidSum = async () => {
@@ -91,6 +88,7 @@ class Home extends Component {
           new: this.state.cases[i].description.cases.new,
           death: this.state.cases[i].description.deaths.total,
           total: this.state.cases[i].description.cases.total,
+          time: this.state.cases[i].description.time,
         });
 
         this.state.copydict1.push({
@@ -99,6 +97,7 @@ class Home extends Component {
           new: this.state.cases[i].description.cases.new,
           death: this.state.cases[i].description.deaths.total,
           total: this.state.cases[i].description.cases.total,
+          time: this.state.cases[i].description.time,
         });
       }
       console.log('checkcopy', this.state.copydict1);
@@ -134,14 +133,27 @@ class Home extends Component {
     return (
       <View>
         <SafeAreaView>
-          <View style={styles.Searchbarview}>
-            <Search
-              aboutCountry={this.state.dict}
-              onClickSelectCountry={this.onClickSelectCountry}
-            />
+          <View style={styles.search}>
+            <View>
+              <Image
+                style={styles.tinyLogo}
+                source={require('./Subcomponent/assets/UI-covid19/drawable-hdpi/corona-8.png')}
+              />
+            </View>
+            <View style={styles.Searchbarview}>
+              <Search
+                aboutCountry={this.state.dict}
+                onClickSelectCountry={this.onClickSelectCountry}
+              />
+            </View>
           </View>
+        
           <View style={styles.Flatlistview}>
-            <List aboutCases={this.state.dict1} aboutCountry={this.state.countries}  navigation={this.props.navigation}  />
+            <List
+              aboutCases={this.state.dict1}
+              aboutCountry={this.state.countries}
+              navigation={this.props.navigation}
+            />
           </View>
         </SafeAreaView>
       </View>
@@ -150,17 +162,31 @@ class Home extends Component {
 }
 
 const styles = StyleSheet.create({
-  Flatlistview: {
+  search: {
+    flexDirection: 'row',
     position: 'relative',
-    // marginLeft: 15,
-    // marginRight: 15,
-    width: W,
-    height: H,
-    // backgroundColor: 'yellow',
+    backgroundColor:'#f23f34',
   },
   Searchbarview: {
     position: 'relative',
+    width: 0.95 * W,
+    left: 30,
   },
+  tinyLogo: {
+    position: 'absolute',
+    width: 40,
+    height: 40,
+    left: 6,
+    top: 30,
+  },
+  Flatlistview: {
+    position: 'relative',
+    width: 0.95 * W,
+    height: H,
+    left: 10,
+    backgroundColor:'white'
+  },
+
 });
 
 export {Home};

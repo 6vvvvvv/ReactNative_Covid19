@@ -13,8 +13,8 @@ const Map = ({route}) => {
 
   const latit = parseFloat(JSON.stringify(lat[0]));
   const longi = parseFloat(JSON.stringify(lon[0]));
-  const newtomap1=JSON.stringify(newtomap[0])
-  const totaltomap1=JSON.stringify(totaltomap[0])
+  const newtomap1 = JSON.stringify(newtomap[0]);
+  const totaltomap1 = JSON.stringify(totaltomap[0]);
   console.log(latit);
   console.log(longi);
 
@@ -22,8 +22,7 @@ const Map = ({route}) => {
     <View style={styles.container}>
       <MapView
         provider={PROVIDER_GOOGLE} // remove if not using Google Maps
-        style={styles.map}
-        >
+        style={styles.map}>
         <Marker
           coordinate={{
             latitude: latit,
@@ -33,10 +32,12 @@ const Map = ({route}) => {
           tracksViewChanges={false}
           // title={"test"}
         >
-          <Text>
-            New:{newtomap1}
-            ,Total:{totaltomap1}
-          </Text>
+          <View style={styles.mapStyle}>
+            <Text style={styles.maptext}>
+              {newtomap1} /
+              "{totaltomap1}"
+            </Text>
+          </View>
         </Marker>
       </MapView>
     </View>
@@ -54,6 +55,15 @@ const styles = StyleSheet.create({
   map: {
     ...StyleSheet.absoluteFillObject,
   },
+  mapStyle:{
+    padding:10,
+    borderRadius:10,
+    backgroundColor:'#f23f34',
+  },
+  maptext:{
+    color:'white',
+    fontWeight:"bold",
+  }
 });
 
 export {Map};

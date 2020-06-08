@@ -41,17 +41,17 @@ class Search extends Component {
             borderRadius: 5,
           }}
           itemTextStyle={{color: '#222'}}
-          itemsContainerStyle={{maxHeight: 250}}
+          itemsContainerStyle={{maxHeight: 200}}
           //items should be a list
           items={this.state.items}
           textInputProps={{
             placeholder: 'Select a Country',
-            underlineColorAndroid: 'transparent',
+            // underlineColorAndroid: 'transparent',
             style: {
               padding: 12,
-              borderWidth: 1,
+              backgroundColor:'white',
               borderColor: '#ccc',
-              borderRadius: 10,
+              borderRadius: 8,
             },
             // onTextChange: text => alert(text),
           }}
