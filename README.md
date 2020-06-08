@@ -7,6 +7,7 @@
 1.React Native Navigator V5 
 2.React Native Searchable Dropdown 
 3.React Native Google Map
+4.Numeral.js
 
 ## API: Rapid API / Country Flag API
 1.https://rapidapi.com/Gramzivi/api/covid-19-data   
